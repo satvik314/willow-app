@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Willow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="wash wash-a"></div>
+<div class="wash wash-b"></div>
+<div class="scrim" id="scrim"></div>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="side-top">
+      <div class="brand">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+          <path d="M12 22V9"/><path d="M12 13c-3.2 0-5-1.9-5-5 3.2 0 5 1.9 5 5Z"/><path d="M12 9c3.2 0 5-1.9 5-5-3.2 0-5 1.9-5 5Z"/>
+        </svg>
+        <span class="brand-name">Willow</span>
+      </div>
+      <div style="display:flex; gap:4px">
+        <button class="icon-btn" id="keyBtn" aria-label="Gemini API key"></button>
+        <button class="icon-btn" id="themeBtn" aria-label="Switch to night"></button>
+      </div>
+    </div>
+
+    <button class="new-chat" id="newChat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      New conversation
+    </button>
+
+    <nav class="convos" id="convos" aria-label="Previous conversations"></nav>
+  </aside>
+
+  <div class="app">
+    <header class="top">
+      <div class="top-left">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Show conversations">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <span class="eyebrow-top">A space to think</span>
+      </div>
+      <div class="top-right">
+        <div class="picker">
+          <button class="pick" id="pickBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="glyph" id="pickGlyph"></span>
+            <span class="pick-text"><span class="pick-name" id="pickName"></span><span class="pick-era" id="pickEra"></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="menu" id="menu" role="listbox" aria-label="Choose a philosopher"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="stage">
+      <aside class="rail" id="rail" aria-hidden="true"></aside>
+      <div class="thread" id="thread"></div>
+    </main>
+
+    <footer class="composer">
+      <div class="field">
+        <textarea id="input" rows="1" placeholder="What's on your mind?"></textarea>
+        <button class="send" id="send" aria-label="Send message" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="foot">
+        <p class="note">Willow is a space to think, not treatment or medical advice. If you're in crisis, please reach your local emergency number or a crisis helpline.</p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="scrim" id="keyScrim"></div>
+<div class="key-modal" id="keyModal">
+  <p class="key-title">Gemini API key</p>
+  <p class="key-copy">Willow calls Gemini directly from your browser. Your key is stored only in this browser's local storage and is never sent anywhere else.</p>
+  <input type="password" id="keyInput" class="key-input" placeholder="AIza...">
+  <p class="key-hint">Get a key from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Google AI Studio</a>.</p>
+  <div class="key-actions">
+    <button class="key-btn key-btn-ghost" id="keyCancel">Cancel</button>
+    <button class="key-btn key-btn-save" id="keySave">Save</button>
+  </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
